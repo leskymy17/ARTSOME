@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reference — ARTSOME | Malířství, nátěry a renovace</title>
+<meta name="description" content="Fotogalerie realizací ARTSOME s.r.o. — malování, nátěry, renovace dřeva a pokládka podlah v Moravskoslezském kraji. Reálné fotky, žádný stock.">
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Reference — ARTSOME | Malířství, nátěry a renovace">
+<meta property="og:description" content="Fotogalerie realizací ARTSOME s.r.o. — malování, nátěry, renovace dřeva a pokládka podlah v Moravskoslezském kraji.">
+<meta property="og:image"       content="https://www.artsome.cz/assets/og-artsome.jpg">
+<meta property="og:url"         content="https://www.artsome.cz/reference.html">
+<meta property="og:locale"      content="cs_CZ">
+<meta name="twitter:card"       content="summary_large_image">
+<link rel="canonical" href="https://www.artsome.cz/reference.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ---- FILTRY ---- */
+  .filters{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:38px;justify-content:center}
+  .filter{font-family:'Sora';font-weight:600;font-size:.92rem;padding:.6rem 1.2rem;border-radius:999px;border:1.5px solid var(--blue-line);background:#fff;color:var(--ink-soft);cursor:pointer;transition:.2s}
+  .filter:hover{border-color:var(--blue);color:var(--blue)}
+  .filter.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+  /* ---- MASONRY GALERIE ---- */
+  .masonry{columns:4;column-gap:16px}
+  .masonry .cell{break-inside:avoid;margin-bottom:16px;border-radius:var(--radius-sm);overflow:hidden;position:relative;cursor:pointer;background:var(--ph)}
+  .cell img{width:100%;display:block;transition:transform .5s var(--ease)}
+  .cell .ph{min-height:220px}
+  .cell:hover img{transform:scale(1.05)}
+  .cell::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(14,18,82,.5));opacity:0;transition:opacity .3s}
+  .cell:hover::after{opacity:1}
+  .cell .cap{position:absolute;left:14px;bottom:12px;color:#fff;font-family:'Sora';font-weight:600;font-size:.85rem;z-index:2;opacity:0;transform:translateY(6px);transition:.3s}
+  .cell:hover .cap{opacity:1;transform:none}
+  .cell.hide{display:none}
+
+  /* ---- BEFORE / AFTER BLOK ---- */
+  .ba-block{background:var(--blue-ink);color:#fff;position:relative;overflow:hidden}
+  .ba-block::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0%,rgba(31,43,191,.5),transparent 60%)}
+  .ba-block .wrap{position:relative}
+  .ba-block .sec-head h2{color:#fff}
+  .ba-block .sec-head p{color:rgba(255,255,255,.8)}
+  .ba-pairs{display:grid;gap:34px}
+  .ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .ba-pair figure{border-radius:var(--radius);overflow:hidden;position:relative;box-shadow:0 20px 50px -22px rgba(0,0,0,.6)}
+  .ba-pair img{width:100%;height:300px;object-fit:cover}
+  .ba-pair .label{position:absolute;top:14px;left:14px;font-family:'Sora';font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .8rem;border-radius:999px}
+  .label-before{background:rgba(0,0,0,.6);color:#fff}
+  .label-after{background:var(--accent);color:#fff}
+
+  /* ---- LIGHTBOX ---- */
+  .lb{position:fixed;inset:0;z-index:400;background:rgba(8,10,40,.92);display:none;align-items:center;justify-content:center;padding:30px}
+  .lb.open{display:flex}
+  .lb img{max-width:90vw;max-height:82vh;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lb .ph{width:min(80vw,700px);height:min(60vh,500px);border-radius:10px}
+  .lb-close{position:absolute;top:22px;right:26px;background:none;border:0;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1}
+  .lb-cap{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:rgba(255,255,255,.85);font-family:'Sora';font-size:.95rem}
+
+  /* ---- CTA BAND ---- */
+  .cta-band{background:var(--blue);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .cta-band::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 100% at 50% 0%,rgba(255,255,255,.1),transparent 60%)}
+  .cta-band .wrap{position:relative}
+  .cta-band h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:800;margin-bottom:1rem}
+  .cta-band p{color:rgba(255,255,255,.85);max-width:46ch;margin:0 auto 1.8rem}
+  .cta-band .row{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+
+  /* ---- RESPONSIVE ---- */
+  @media(max-width:980px){.masonry{columns:3}.ba-pair img{height:240px}}
+  @media(max-width:680px){.masonry{columns:2;column-gap:10px}.masonry .cell{margin-bottom:10px}.ba-pair{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "ARTSOME s.r.o.",
+  "url": "https://www.artsome.cz",
+  "telephone": "+420739193542",
+  "email": "artsome@seznam.cz",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Klidn\u00e1 790/6",
+    "addressLocality": "Hav\u00ed\u0159ov-M\u011bsto",
+    "postalCode": "73601",
+    "addressRegion": "Moravskoslezsk\u00fd kraj",
+    "addressCountry": "CZ"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo">
+      <span class="mark"><span></span></span>ARTSOME
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#sluzby">Služby</a></li>
+      <li><a href="reference.html" class="active">Reference</a></li>
+      <li><a href="index.html#onas">O nás</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:739193542" class="nav-tel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        739 193 542
+      </a>
+      <a href="kontakt.html" class="btn btn-primary">Nezávazná poptávka</a>
+      <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigační menu">
+  <div class="drawer-panel">
+    <button class="drawer-close" id="drawerClose" aria-label="Zavřít menu">&times;</button>
+    <a href="index.html#sluzby">Služby</a>
+    <a href="reference.html">Reference</a>
+    <a href="index.html#onas">O nás</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="tel:739193542" style="color:var(--blue)">📞 739 193 542</a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Drobečková navigace">
+      <a href="index.html">Domů</a> / Reference
+    </nav>
+    <h1>Reference</h1>
+    <p>Reálné fotky z realizací po celém Moravskoslezském kraji. Malování, nátěry, renovace i kompletní rekonstrukce — žádný stock, jen odvedená práce.</p>
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section>
+  <div class="wrap">
+    <div class="filters" id="filters" role="group" aria-label="Filtrovat podle druhu práce">
+      <button class="filter active" data-f="all">Vše</button>
+      <button class="filter" data-f="malovani">Malování</button>
+      <button class="filter" data-f="natery">Nátěry</button>
+      <button class="filter" data-f="renovace">Renovace</button>
+      <button class="filter" data-f="podlahy">Podlahy &amp; stavba</button>
+      <button class="filter" data-f="tapety">Tapety</button>
+    </div>
+
+    <div class="masonry" id="grid">
+      <!-- malování -->
+      <div class="cell" data-c="malovani" data-img="assets/g-mal-2.jpg" data-cap="Výmalba — akcentová stěna" tabindex="0" role="button" aria-label="Otevřít: Výmalba — akcentová stěna">
+        <img src="assets/g-mal-2.jpg" alt="Výmalba akcentové stěny" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Výmalba — akcentová stěna</span>
+      </div>
+      <div class="cell" data-c="malovani" data-img="assets/g-mal-3.jpg" data-cap="Výmalba pokoje" tabindex="0" role="button" aria-label="Otevřít: Výmalba pokoje">
+        <img src="assets/g-mal-3.jpg" alt="Výmalba pokoje" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Výmalba pokoje</span>
+      </div>
+      <div class="cell" data-c="malovani" data-img="assets/g-mal-1.jpg" data-cap="Výmalba — chodba a dveře" tabindex="0" role="button" aria-label="Otevřít: Výmalba chodby">
+        <img src="assets/g-mal-1.jpg" alt="Výmalba chodby" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Výmalba — chodba</span>
+      </div>
+      <div class="cell" data-c="malovani" data-img="" data-cap="Výmalba haly" tabindex="0" role="button" aria-label="Výmalba haly — foto bude doplněno">
+        <div class="ph" style="min-height:300px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Výmalba haly</span>
+        </div>
+      </div>
+      <!-- nátěry -->
+      <div class="cell" data-c="natery" data-img="assets/g-natery-5.jpg" data-cap="Nátěr interiérových dveří" tabindex="0" role="button" aria-label="Otevřít: Nátěr interiérových dveří">
+        <img src="assets/g-natery-5.jpg" alt="Nátěr interiérových dveří" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Nátěr interiérových dveří</span>
+      </div>
+      <div class="cell" data-c="natery" data-img="assets/g-natery-3.jpg" data-cap="Nátěr plechové střechy" tabindex="0" role="button" aria-label="Otevřít: Nátěr plechové střechy">
+        <img src="assets/g-natery-3.jpg" alt="Nátěr plechové střechy" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Nátěr plechové střechy</span>
+      </div>
+      <div class="cell" data-c="natery" data-img="assets/g-natery-4.jpg" data-cap="Nátěr topení a radiátorů" tabindex="0" role="button" aria-label="Otevřít: Nátěr radiátorů">
+        <img src="assets/g-natery-4.jpg" alt="Nátěr radiátorů" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Nátěr radiátorů</span>
+      </div>
+      <div class="cell" data-c="natery" data-img="assets/g-natery-1.jpg" data-cap="Renovace okna a parapetu" tabindex="0" role="button" aria-label="Otevřít: Okno a parapet">
+        <img src="assets/g-natery-1.jpg" alt="Renovace okna a parapetu" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Okno a parapet</span>
+      </div>
+      <div class="cell" data-c="natery" data-img="assets/g-natery-2.jpg" data-cap="Nátěr dřevěného schodiště" tabindex="0" role="button" aria-label="Otevřít: Dřevěné schodiště">
+        <img src="assets/g-natery-2.jpg" alt="Nátěr dřevěného schodiště" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Dřevěné schodiště</span>
+      </div>
+      <div class="cell" data-c="natery" data-img="" data-cap="Nátěr plotu" tabindex="0" role="button" aria-label="Nátěr plotu — foto bude doplněno">
+        <div class="ph" style="min-height:240px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Nátěr plotu</span>
+        </div>
+      </div>
+      <!-- renovace -->
+      <div class="cell" data-c="renovace" data-img="assets/g-reno-2.jpg" data-cap="Renovace fasády chaty — po" tabindex="0" role="button" aria-label="Otevřít: Renovace fasády">
+        <img src="assets/g-reno-2.jpg" alt="Renovovaná fasáda chaty" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Renovace fasády — po</span>
+      </div>
+      <div class="cell" data-c="renovace" data-img="assets/g-reno-1.jpg" data-cap="Dřevěná chata — před" tabindex="0" role="button" aria-label="Otevřít: Chata před renovací">
+        <img src="assets/g-reno-1.jpg" alt="Dřevěná chata před renovací" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Dřevěná chata — před</span>
+      </div>
+      <div class="cell" data-c="renovace" data-img="assets/g-reno-4.jpg" data-cap="Renovované vstupní dveře" tabindex="0" role="button" aria-label="Otevřít: Renovované vstupní dveře">
+        <img src="assets/g-reno-4.jpg" alt="Renovované vstupní dveře" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Renovované vstupní dveře</span>
+      </div>
+      <div class="cell" data-c="renovace" data-img="assets/g-reno-3.jpg" data-cap="Detail — broušení do dřeva" tabindex="0" role="button" aria-label="Otevřít: Detail broušení dřeva">
+        <img src="assets/g-reno-3.jpg" alt="Detail broušení dřeva" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Detail — broušení do dřeva</span>
+      </div>
+      <div class="cell" data-c="renovace" data-img="assets/g-reno-5.jpg" data-cap="Nové palubky a nátěr" tabindex="0" role="button" aria-label="Otevřít: Nové palubky a nátěr">
+        <img src="assets/g-reno-5.jpg" alt="Nové palubky s nátěrem" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Nové palubky a nátěr</span>
+      </div>
+      <!-- podlahy -->
+      <div class="cell" data-c="podlahy" data-img="assets/g-sklep-a1.jpg" data-cap="Nová podlaha a výmalba" tabindex="0" role="button" aria-label="Otevřít: Nová podlaha a výmalba">
+        <img src="assets/g-sklep-a1.jpg" alt="Nová podlaha a výmalba rekonstruovaného sklepa" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Nová podlaha a výmalba</span>
+      </div>
+      <div class="cell" data-c="podlahy" data-img="assets/g-sklep-a3.jpg" data-cap="Pokládka koberce" tabindex="0" role="button" aria-label="Otevřít: Pokládka koberce">
+        <img src="assets/g-sklep-a3.jpg" alt="Pokládka koberce" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Pokládka koberce</span>
+      </div>
+      <div class="cell" data-c="podlahy" data-img="" data-cap="Plovoucí podlaha" tabindex="0" role="button" aria-label="Plovoucí podlaha — foto bude doplněno">
+        <div class="ph" style="min-height:240px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Plovoucí podlaha</span>
+        </div>
+      </div>
+      <div class="cell" data-c="podlahy" data-img="" data-cap="Sádrokartonový strop" tabindex="0" role="button" aria-label="Sádrokartonový strop — foto bude doplněno">
+        <div class="ph" style="min-height:200px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Sádrokartonový strop</span>
+        </div>
+      </div>
+      <!-- tapety -->
+      <div class="cell" data-c="tapety" data-img="assets/g-tapety-1.jpg" data-cap="Fototapeta — obývací pokoj" tabindex="0" role="button" aria-label="Otevřít: Fototapeta obývací pokoj">
+        <img src="assets/g-tapety-1.jpg" alt="Fototapeta v obývacím pokoji" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Fototapeta — obývací pokoj</span>
+      </div>
+      <div class="cell" data-c="tapety" data-img="assets/g-tapety-2.jpg" data-cap="Tapeta v knihovně" tabindex="0" role="button" aria-label="Otevřít: Tapeta v knihovně">
+        <img src="assets/g-tapety-2.jpg" alt="Tapeta v knihovně" width="300" height="220" loading="lazy">
+        <span class="cap" aria-hidden="true">Tapeta v knihovně</span>
+      </div>
+      <div class="cell" data-c="tapety" data-img="" data-cap="Vliesová tapeta — ložnice" tabindex="0" role="button" aria-label="Vliesová tapeta — foto bude doplněno">
+        <div class="ph" style="min-height:260px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>Vliesová tapeta</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba-block">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:680px">
+      <span class="kicker" style="color:#ffd9c9">Proměny před / po</span>
+      <h2>Ze sklepa obyvatelná kancelář</h2>
+      <p>Kompletní zakázka od začátku do konce — vylití podlahy nivelací, snížený sádrokartonový strop, nové rozvody, výmalba a pokládka.</p>
+    </div>
+    <div class="ba-pairs">
+      <div class="ba-pair reveal">
+        <figure>
+          <span class="label label-before">Před</span>
+          <img src="assets/g-sklep-b2.jpg" alt="Sklep před rekonstrukcí — pohled 1" width="560" height="300" loading="lazy">
+        </figure>
+        <figure>
+          <span class="label label-after">Po</span>
+          <img src="assets/g-sklep-a2.jpg" alt="Sklep po rekonstrukci — pohled 1" width="560" height="300" loading="lazy">
+        </figure>
+      </div>
+      <div class="ba-pair reveal">
+        <figure>
+          <span class="label label-before">Před</span>
+          <img src="assets/g-sklep-b3.jpg" alt="Sklep před rekonstrukcí — pohled 2" width="560" height="300" loading="lazy">
+        </figure>
+        <figure>
+          <span class="label label-after">Po</span>
+          <img src="assets/g-sklep-a3.jpg" alt="Sklep po rekonstrukci — pohled 2" width="560" height="300" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Líbí se vám naše práce?</h2>
+    <p>Domluvíme schůzku a vypracujeme cenovou kalkulaci zdarma — obvykle se ozveme do 24 hodin.</p>
+    <div class="row">
+      <a href="tel:739193542" class="btn btn-light">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        739 193 542
+      </a>
+      <a href="kontakt.html" class="btn btn-primary" style="background:#fff;color:var(--blue)">Nezávazná poptávka</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo logo"><span class="mark"><span></span></span>ARTSOME</div>
+        <p>Malířství, lakýrnictví a natěračství. Rychlost, spolehlivost, kvalita, čistota a lidský přístup.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>
+          <a href="tel:739193542">Tel: 739 193 542</a><br>
+          <a href="mailto:artsome@seznam.cz">artsome@seznam.cz</a><br>
+          ARTSOME s.r.o.<br>IČO: 199 577 51
+        </p>
+      </div>
+      <div>
+        <h4>Adresa</h4>
+        <p>Klidná 790/6<br>Havířov-Město<br>736 01<br>Moravskoslezský kraj</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 ARTSOME s.r.o. Všechna práva vyhrazena.</span>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/artsomesro" target="_blank" rel="noopener" aria-label="ARTSOME na Instagramu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-bar">
+  <a href="tel:739193542" class="call">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Zavolat
+  </a>
+  <a href="kontakt.html" class="quote">Poptávka</a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Náhled fotografie">
+  <button class="lb-close" id="lbClose" aria-label="Zavřít náhled">&times;</button>
+  <div id="lbContent"></div>
+  <div class="lb-cap" id="lbCap" aria-live="polite"></div>
+</div>
+
+<script>
+  // Mobile drawer
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  const drawerClose = document.getElementById('drawerClose');
+  function openDrawer()  { drawer.classList.add('open');    burger.setAttribute('aria-expanded','true')  }
+  function closeDrawer() { drawer.classList.remove('open'); burger.setAttribute('aria-expanded','false') }
+  burger.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  drawer.addEventListener('click', e => { if (e.target === drawer) closeDrawer() });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+  // Filters
+  const filters = document.querySelectorAll('.filter');
+  const cells   = document.querySelectorAll('.cell');
+  filters.forEach(f => f.addEventListener('click', () => {
+    filters.forEach(x => x.classList.remove('active'));
+    f.classList.add('active');
+    const v = f.dataset.f;
+    cells.forEach(c => c.classList.toggle('hide', !(v === 'all' || c.dataset.c === v)));
+  }));
+
+  // Lightbox
+  const lb     = document.getElementById('lb');
+  const lbC    = document.getElementById('lbContent');
+  const lbCap  = document.getElementById('lbCap');
+  const lbClose = document.getElementById('lbClose');
+  function openLb(c) {
+    const img = c.dataset.img, cap = c.dataset.cap || '';
+    lbC.innerHTML = img
+      ? `<img src="${img}" alt="${cap}">`
+      : `<div class="ph"><span>${cap}</span></div>`;
+    lbCap.textContent = cap;
+    lb.classList.add('open');
+    lbClose.focus();
+  }
+  cells.forEach(c => {
+    c.addEventListener('click', () => openLb(c));
+    c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(c) } });
+  });
+  lbClose.addEventListener('click', () => lb.classList.remove('open'));
+  lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open') });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open') });
+
+  // Scroll reveal
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) }
+  }), { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

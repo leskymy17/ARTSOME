@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARTSOME — Malířství, nátěry a renovace | Moravskoslezský kraj</title>
+<meta name="description" content="Profesionální malířství, nátěry a renovace v Moravskoslezském kraji. Vymalujeme pokoj i celý objekt — rychle, čistě, za rozumnou cenu. Kalkulace zdarma do 24 hodin.">
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="ARTSOME — Malířství, nátěry a renovace | Moravskoslezský kraj">
+<meta property="og:description" content="Profesionální malířství, nátěry a renovace v Moravskoslezském kraji. Vymalujeme pokoj i celý objekt — rychle, čistě, za rozumnou cenu.">
+<meta property="og:image"       content="https://www.artsome.cz/assets/og-artsome.jpg">
+<meta property="og:url"         content="https://www.artsome.cz/">
+<meta property="og:locale"      content="cs_CZ">
+<meta name="twitter:card"       content="summary_large_image">
+<link rel="canonical" href="https://www.artsome.cz/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ---- HERO ---- */
+  .hero{position:relative;background:var(--blue);color:#fff;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 85% 10%,rgba(255,255,255,.12),transparent 55%),radial-gradient(80% 60% at 0% 100%,rgba(255,122,77,.18),transparent 60%);pointer-events:none}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:74px 0 84px}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:.45rem .9rem;border-radius:999px;margin-bottom:1.4rem}
+  .hero h1{font-size:clamp(2.1rem,4.4vw,3.5rem);font-weight:800;margin-bottom:1.1rem}
+  .hero h1 em{font-style:normal;color:#ffd9c9}
+  .hero p.lead{font-size:1.12rem;color:rgba(255,255,255,.86);max-width:30ch;margin-bottom:2rem}
+  .hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;margin-bottom:2.2rem}
+  .hero-trust{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap;font-size:.9rem;color:rgba(255,255,255,.82)}
+  .hero-trust .item{display:flex;align-items:center;gap:.45rem}
+  .stars{color:var(--star);letter-spacing:1px;font-size:.95rem}
+  .hero-trust .sep{width:1px;height:18px;background:rgba(255,255,255,.25)}
+  .hero-visual{position:relative}
+  .ba{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.5)}
+  .ba img{width:100%;height:430px;object-fit:cover}
+  .ba .tag{position:absolute;top:14px;left:14px;background:rgba(14,18,82,.85);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.06em;padding:.35rem .7rem;border-radius:999px;text-transform:uppercase;backdrop-filter:blur(4px)}
+  .ba-after{position:absolute;right:-26px;bottom:-26px;width:58%;border:5px solid var(--blue);box-shadow:0 22px 50px -16px rgba(0,0,0,.55)}
+  .ba-after img{height:200px}
+  .ba-after .tag{background:var(--accent);top:auto;bottom:14px;left:14px}
+  .float-badge{position:absolute;top:-22px;right:18px;background:#fff;color:var(--blue-ink);border-radius:14px;padding:.7rem .95rem;box-shadow:var(--shadow);display:flex;align-items:center;gap:.6rem;font-size:.8rem;font-weight:600;z-index:3}
+  .float-badge .big{font-family:'Sora';font-weight:800;font-size:1.4rem;line-height:1;color:var(--blue)}
+
+  /* ---- TRUST STRIP ---- */
+  .trust-strip{background:var(--paper);border-bottom:1px solid var(--blue-line)}
+  .trust-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:22px 0;flex-wrap:wrap}
+  .trust-item{display:flex;align-items:center;gap:.7rem;font-size:.92rem;color:var(--ink-soft);font-weight:500}
+  .trust-item strong{color:var(--ink);font-family:'Sora';font-weight:700}
+  .trust-item .ic{width:40px;height:40px;border-radius:10px;background:var(--blue-soft);display:grid;place-items:center;color:var(--blue);flex:0 0 auto}
+  .trust-item .ic svg{width:20px;height:20px}
+
+  /* ---- SERVICES ---- */
+  .services{background:var(--paper-dim)}
+  .svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .svc{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--blue-line);transition:transform .3s var(--ease),box-shadow .3s var(--ease);display:flex;flex-direction:column}
+  .svc:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .svc-img{height:158px;overflow:hidden;position:relative}
+  .svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+  .svc:hover .svc-img img{transform:scale(1.07)}
+  .svc-num{position:absolute;top:12px;left:12px;width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.92);color:var(--blue);font-family:'Sora';font-weight:800;font-size:.85rem;display:grid;place-items:center}
+  .svc-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:.5rem;flex:1}
+  .svc-body h3{font-size:1.18rem;font-weight:700;color:var(--blue-ink)}
+  .svc-body p{font-size:.93rem;color:var(--ink-soft)}
+  .svc-link{margin-top:auto;font-family:'Sora';font-weight:600;font-size:.9rem;color:var(--blue);display:inline-flex;align-items:center;gap:.4rem;padding-top:.6rem}
+  .svc-link svg{width:15px;height:15px;transition:transform .25s var(--ease)}
+  .svc:hover .svc-link svg{transform:translateX(4px)}
+  .svc-note{text-align:center;margin-top:30px;color:var(--ink-soft);font-size:.96rem}
+  .svc-note strong{color:var(--blue-ink)}
+
+  /* ---- GALLERY TEASER ---- */
+  .ref-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:40px;flex-wrap:wrap}
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+  .gal a{position:relative;border-radius:var(--radius-sm);overflow:hidden;background:var(--blue-soft)}
+  .gal img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+  .gal a:hover img{transform:scale(1.06)}
+  .gal a::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(14,18,82,.45));opacity:0;transition:opacity .3s}
+  .gal a:hover::after{opacity:1}
+  .gal .tall{grid-row:span 2}
+  .gal .wide{grid-column:span 2}
+
+  /* ---- BEFORE / AFTER FEATURE ---- */
+  .ba-feature{background:var(--blue-ink);color:#fff;position:relative;overflow:hidden}
+  .ba-feature::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 100% 0%,rgba(31,43,191,.55),transparent 60%)}
+  .ba-feature .wrap{position:relative}
+  .ba-feature .sec-head h2{color:#fff}
+  .ba-feature .sec-head p{color:rgba(255,255,255,.78)}
+  .ba-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:12px}
+  .ba-card{border-radius:var(--radius);overflow:hidden;position:relative;box-shadow:0 24px 60px -24px rgba(0,0,0,.6)}
+  .ba-card img{width:100%;height:340px;object-fit:cover}
+  .ba-card .label{position:absolute;top:16px;left:16px;font-family:'Sora';font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:.4rem .85rem;border-radius:999px}
+  .label-before{background:rgba(0,0,0,.6);color:#fff}
+  .label-after{background:var(--accent);color:#fff}
+
+  /* ---- REVIEWS ---- */
+  .reviews{background:var(--blue-soft)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rev{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:1rem;border:1px solid var(--blue-line)}
+  .rev .stars{font-size:1.05rem}
+  .rev p{color:var(--ink);font-size:1rem}
+  .rev .who{display:flex;align-items:center;gap:.7rem;margin-top:auto}
+  .rev .ava{width:42px;height:42px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-family:'Sora';font-weight:700;flex:0 0 auto}
+  .rev .who .name{font-family:'Sora';font-weight:600;font-size:.95rem;color:var(--blue-ink)}
+  .rev .who .meta{font-size:.82rem;color:var(--ink-soft)}
+  .rev-foot{text-align:center;margin-top:38px}
+
+  /* ---- CTA + FORM ---- */
+  .cta{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 100% at 0% 0%,rgba(255,255,255,.1),transparent 55%)}
+  .cta-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .cta h2{font-size:clamp(1.9rem,3.4vw,2.7rem);font-weight:800;margin-bottom:1rem}
+  .cta p{color:rgba(255,255,255,.85);font-size:1.08rem;margin-bottom:1.8rem;max-width:38ch}
+  .cta-actions{display:flex;gap:.9rem;flex-wrap:wrap}
+  .form{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:0 30px 70px -20px rgba(0,0,0,.4)}
+  .form h3{color:var(--blue-ink);font-size:1.3rem;margin-bottom:1.4rem}
+  .field{margin-bottom:1rem}
+  .field label{display:block;font-size:.85rem;font-weight:600;color:var(--ink-soft);margin-bottom:.4rem}
+  .field input,.field textarea{width:100%;border:1.5px solid var(--blue-line);border-radius:10px;padding:.8rem .9rem;font-family:'Inter';font-size:.98rem;color:var(--ink);transition:border-color .2s,box-shadow .2s;background:#fff}
+  .field input:focus,.field textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(31,43,191,.12)}
+  .field input.error,.field textarea.error{border-color:#e53e3e}
+  .form .btn-primary{width:100%;justify-content:center;margin-top:.4rem}
+  .form .small{font-size:.78rem;color:var(--ink-soft);text-align:center;margin-top:.9rem}
+  .form-success{text-align:center;padding:2.5rem 1rem}
+  .form-success .success-icon{font-size:2.8rem;line-height:1;margin-bottom:.7rem}
+  .form-success h3{color:var(--blue-ink);margin-bottom:.4rem}
+  .form-success p{color:var(--ink-soft);font-size:.97rem}
+
+  /* ---- RESPONSIVE ---- */
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:54px;padding:54px 0 70px}
+    .hero p.lead{max-width:none}
+    .svc-grid{grid-template-columns:repeat(2,1fr)}
+    .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+    .gal .wide{grid-column:span 2}
+    .ba-cols{grid-template-columns:1fr}
+    .rev-grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}
+    .cta-grid{grid-template-columns:1fr;gap:36px}
+  }
+  @media(max-width:680px){
+    .hero h1{font-size:2rem}
+    .ba-after{width:62%;right:-10px;bottom:-18px}
+    .svc-grid{grid-template-columns:1fr;gap:16px}
+    .gal{grid-template-columns:1fr 1fr;gap:10px;grid-auto-rows:140px}
+    .trust-row{gap:.8rem;justify-content:center}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "ARTSOME s.r.o.",
+  "legalName": "ARTSOME s.r.o.",
+  "taxID": "19957751",
+  "url": "https://www.artsome.cz",
+  "telephone": "+420739193542",
+  "email": "artsome@seznam.cz",
+  "image": "https://www.artsome.cz/assets/og-artsome.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Klidn\u00e1 790/6",
+    "addressLocality": "Hav\u00ed\u0159ov-M\u011bsto",
+    "postalCode": "73601",
+    "addressRegion": "Moravskoslezsk\u00fd kraj",
+    "addressCountry": "CZ"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "49.7722",
+    "longitude": "18.4293"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "07:00",
+      "closes": "17:00"
+    }
+  ],
+  "areaServed": { "@type": "State", "name": "Moravskoslezsk\u00fd kraj" },
+  "description": "Mal\u00ed\u0159stv\u00ed, n\u00e1t\u011bry, renovace a pokl\u00e1dka podlah v Moravskoslezsk\u00e9m kraji. Byty, domy, firmy, \u0161koly. Kalkulace zdarma.",
+  "priceRange": "$$",
+  "sameAs": ["https://www.instagram.com/artsomesro"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "17",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo">
+      <span class="mark"><span></span></span>ARTSOME
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="reference.html">Reference</a></li>
+      <li><a href="#onas">O nás</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:739193542" class="nav-tel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        739 193 542
+      </a>
+      <a href="kontakt.html" class="btn btn-primary">Nezávazná poptávka</a>
+      <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigační menu">
+  <div class="drawer-panel">
+    <button class="drawer-close" id="drawerClose" aria-label="Zavřít menu">&times;</button>
+    <a href="#sluzby">Služby</a>
+    <a href="reference.html">Reference</a>
+    <a href="#onas">O nás</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="tel:739193542" style="color:var(--blue)">📞 739 193 542</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">⭐ TOP firma 2025 · Moravskoslezský kraj</span>
+      <h1>Malířství, nátěry a <em>renovace</em> bez kompromisů</h1>
+      <p class="lead">Vymalujeme pokoj i celý objekt. Rychle, čistě a za rozumnou cenu — od první barvy po závěrečný úklid.</p>
+      <div class="hero-actions">
+        <a href="tel:739193542" class="btn btn-light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          739 193 542
+        </a>
+        <a href="kontakt.html" class="btn btn-primary" style="background:#fff;color:var(--blue)">Cenová kalkulace zdarma</a>
+      </div>
+      <div class="hero-trust">
+        <span class="item"><span class="stars" aria-label="5 hvězdiček">★★★★★</span> 5,0 na Firmy.cz</span>
+        <span class="sep" aria-hidden="true"></span>
+        <span class="item">17 recenzí</span>
+        <span class="sep" aria-hidden="true"></span>
+        <span class="item">✓ Pořádek po práci</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="float-badge" aria-hidden="true">
+        <span class="big">17</span><div>spokojených<br>recenzí ★</div>
+      </div>
+      <div class="ba">
+        <span class="tag">Po rekonstrukci</span>
+        <img src="assets/after-cellar.jpg" alt="Sklep přebudovaný na obyvatelnou kancelář" width="600" height="430">
+      </div>
+      <div class="ba ba-after">
+        <span class="tag">Původní stav</span>
+        <img src="assets/before-cellar.jpg" alt="Původní stav sklepa před rekonstrukcí" width="346" height="200">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="wrap trust-row">
+    <div class="trust-item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+      <div><strong>TOP firma 2025</strong><br>Firmy.cz</div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></span>
+      <div><strong>Certifikováno</strong><br>NejŘemeslníci &amp; Poptávej.cz</div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+      <div><strong>Kalkulace zdarma</strong><br>do 24 hodin</div>
+    </div>
+    <div class="trust-item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+      <div><strong>Celý kraj</strong><br>Moravskoslezský</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="sluzby">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">Co pro vás uděláme</span>
+      <h2>Čtyři věci, které umíme nejlépe</h2>
+      <p>Od jednoho pokoje po kompletní rekonstrukci. Interiér i exteriér, dřevo i kov.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="svc-img">
+          <span class="svc-num" aria-hidden="true">01</span>
+          <img src="assets/svc-malovani.jpg" alt="Malování interiérů — výmalba pokoje" width="300" height="158" loading="lazy">
+        </div>
+        <div class="svc-body">
+          <h3>Malování</h3>
+          <p>Interiéry i exteriéry — byty, domy, firmy, školy i haly. Vymalujeme pokoj i celý hotel.</p>
+          <a class="svc-link" href="reference.html">Zobrazit práce <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-img">
+          <span class="svc-num" aria-hidden="true">02</span>
+          <img src="assets/svc-natery.jpg" alt="Nátěry oken, dveří a kovových prvků" width="300" height="158" loading="lazy">
+        </div>
+        <div class="svc-body">
+          <h3>Nátěry</h3>
+          <p>Topení, dveře, zárubně, okna, ploty i střechy. Veškeré dřevěné a kovové prvky.</p>
+          <a class="svc-link" href="reference.html">Zobrazit práce <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-img">
+          <span class="svc-num" aria-hidden="true">03</span>
+          <img src="assets/svc-renovace.jpg" alt="Renovace dřevěné chaty" width="300" height="158" loading="lazy">
+        </div>
+        <div class="svc-body">
+          <h3>Renovace</h3>
+          <p>Chaty, dřevěná okna i fasády — broušení do surového dřeva a nový nátěr.</p>
+          <a class="svc-link" href="reference.html">Zobrazit práce <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-img">
+          <span class="svc-num" aria-hidden="true">04</span>
+          <img src="assets/svc-podlahy.jpg" alt="Pokládka podlah a stavební práce" width="300" height="158" loading="lazy">
+        </div>
+        <div class="svc-body">
+          <h3>Podlahy &amp; stavba</h3>
+          <p>Nivelace, plovoucí podlahy, vinyl, PVC, koberce i sádrokartonové stropy.</p>
+          <a class="svc-link" href="reference.html">Zobrazit práce <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <p class="svc-note">Lepíme také <strong>tapety a fototapety</strong> a zajišťujeme drobné <strong>zednické práce</strong> — štuky, perlinku i nové jádro.</p>
+  </div>
+</section>
+
+<!-- REFERENCE TEASER -->
+<section id="reference">
+  <div class="wrap">
+    <div class="ref-head reveal">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="kicker">Reference</span>
+        <h2>Naše práce mluví za nás</h2>
+        <p>Reálné fotky z realizací po celém kraji — žádný stock, jen odvedená práce.</p>
+      </div>
+      <a href="reference.html" class="btn btn-ghost">Zobrazit všechny reference</a>
+    </div>
+    <div class="gal">
+      <a href="reference.html" class="tall"><img src="assets/ref-1.jpg" alt="Realizace — malování interiéru" width="300" height="400" loading="lazy"></a>
+      <a href="reference.html"><img src="assets/ref-2.jpg" alt="Realizace — nátěry" width="300" height="200" loading="lazy"></a>
+      <a href="reference.html"><img src="assets/ref-3.jpg" alt="Realizace — renovace" width="300" height="200" loading="lazy"></a>
+      <a href="reference.html"><img src="assets/ref-4.jpg" alt="Realizace — podlahy" width="300" height="200" loading="lazy"></a>
+      <a href="reference.html" class="wide"><img src="assets/ref-5.jpg" alt="Realizace — rekonstrukce sklepa" width="600" height="200" loading="lazy"></a>
+      <a href="reference.html"><img src="assets/ref-6.jpg" alt="Realizace — tapety" width="300" height="200" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER FEATURE -->
+<section class="ba-feature">
+  <div class="wrap">
+    <div class="sec-head reveal" style="max-width:680px">
+      <span class="kicker" style="color:#ffd9c9">Proměna</span>
+      <h2>Ze sklepa obyvatelná kancelář</h2>
+      <p>Kompletní rekonstrukce: vylití podlahy nivelací, snížený sádrokartonový strop, nové rozvody a výmalba. Jedna zakázka od začátku do konce.</p>
+    </div>
+    <div class="ba-cols reveal">
+      <div class="ba-card">
+        <span class="label label-before">Původní stav</span>
+        <img src="assets/before-cellar.jpg" alt="Sklep před rekonstrukcí" width="580" height="340" loading="lazy">
+      </div>
+      <div class="ba-card">
+        <span class="label label-after">Po rekonstrukci</span>
+        <img src="assets/after-cellar.jpg" alt="Sklep po rekonstrukci" width="580" height="340" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="onas">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="kicker">Co říkají zákazníci</span>
+      <h2>Hodnocení 5,0 z 5</h2>
+      <p>Spolehlivost, čistota a lidský přístup — to slýcháme nejčastěji.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <span class="stars" aria-label="Hodnocení 5 z 5">★★★★★</span>
+        <p>„Rychlá domluva, perfektně odvedená výmalba a po práci uklizeno do posledního flíčku. Doporučuji."</p>
+        <div class="who"><span class="ava" aria-hidden="true">J</span><div><div class="name">Jana K.</div><div class="meta">Výmalba bytu, Havířov</div></div></div>
+      </div>
+      <div class="rev reveal">
+        <span class="stars" aria-label="Hodnocení 5 z 5">★★★★★</span>
+        <p>„Renovovali nám dřevěnou chatu — broušení i nátěr. Vypadá jako nová a cena byla férová."</p>
+        <div class="who"><span class="ava" aria-hidden="true">P</span><div><div class="name">Petr M.</div><div class="meta">Renovace chaty, Beskydy</div></div></div>
+      </div>
+      <div class="rev reveal">
+        <span class="stars" aria-label="Hodnocení 5 z 5">★★★★★</span>
+        <p>„Předělali nám sklep na kancelář. Profesionální parta, vše podle domluvy a v termínu."</p>
+        <div class="who"><span class="ava" aria-hidden="true">L</span><div><div class="name">Lukáš D.</div><div class="meta">Rekonstrukce, Ostrava</div></div></div>
+      </div>
+    </div>
+    <div class="rev-foot reveal">
+      <a href="https://www.firmy.cz/detail/13603911-artsome-s-r-o-havirov-mesto.html" class="btn btn-primary" target="_blank" rel="noopener">Číst všech 17 recenzí na Firmy.cz</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + FORM -->
+<section class="cta" id="kontakt">
+  <div class="wrap cta-grid">
+    <div class="reveal">
+      <h2>Domluvíme schůzku a kalkulaci zdarma</h2>
+      <p>Napište nebo zavolejte — ozveme se obvykle do 24 hodin a vypracujeme nezávaznou cenovou nabídku.</p>
+      <div class="cta-actions">
+        <a href="tel:739193542" class="btn btn-light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          739 193 542
+        </a>
+        <a href="mailto:artsome@seznam.cz" class="btn btn-light">artsome@seznam.cz</a>
+      </div>
+    </div>
+    <div class="form reveal">
+      <h3>Nezávazná poptávka</h3>
+      <form id="form-index" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="VASE-WEB3FORMS-KLIC-ZDE">
+        <input type="hidden" name="subject" value="Nová poptávka z webu ARTSOME">
+        <input type="hidden" name="from_name" value="ARTSOME web">
+        <input type="hidden" name="redirect" value="false">
+        <div class="field">
+          <label for="idx-name">Jméno <span aria-hidden="true">*</span></label>
+          <input type="text" id="idx-name" name="name" placeholder="Vaše jméno" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="idx-phone">Telefon <span aria-hidden="true">*</span></label>
+          <input type="tel" id="idx-phone" name="phone" placeholder="+420 …" required autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="idx-message">Co potřebujete?</label>
+          <textarea id="idx-message" name="message" rows="3" placeholder="Stručně popište práci (např. výmalba bytu 3+1)"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Odeslat poptávku</button>
+        <p class="small">Ozveme se do 24 hodin. Bez závazků.</p>
+      </form>
+      <div class="form-success" id="form-index-success" hidden>
+        <div class="success-icon">✓</div>
+        <h3>Poptávka odeslána!</h3>
+        <p>Ozveme se vám do 24 hodin v pracovní dny.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo logo"><span class="mark"><span></span></span>ARTSOME</div>
+        <p>Malířství, lakýrnictví a natěračství. Rychlost, spolehlivost, kvalita, čistota a lidský přístup.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>
+          <a href="tel:739193542">Tel: 739 193 542</a><br>
+          <a href="mailto:artsome@seznam.cz">artsome@seznam.cz</a><br>
+          ARTSOME s.r.o.<br>IČO: 199 577 51
+        </p>
+      </div>
+      <div>
+        <h4>Adresa</h4>
+        <p>Klidná 790/6<br>Havířov-Město<br>736 01<br>Moravskoslezský kraj</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 ARTSOME s.r.o. Všechna práva vyhrazena.</span>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/artsomesro" target="_blank" rel="noopener" aria-label="ARTSOME na Instagramu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY BAR -->
+<div class="mobile-bar">
+  <a href="tel:739193542" class="call">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Zavolat
+  </a>
+  <a href="kontakt.html" class="quote">Poptávka</a>
+</div>
+
+<script>
+  // Mobile drawer
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  const drawerClose = document.getElementById('drawerClose');
+  function openDrawer()  { drawer.classList.add('open');    burger.setAttribute('aria-expanded','true')  }
+  function closeDrawer() { drawer.classList.remove('open'); burger.setAttribute('aria-expanded','false') }
+  burger.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  drawer.addEventListener('click', e => { if (e.target === drawer) closeDrawer() });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } })
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Form — Web3Forms AJAX submit
+  (function () {
+    const f   = document.getElementById('form-index');
+    const ok  = document.getElementById('form-index-success');
+    if (!f) return;
+    f.addEventListener('submit', async e => {
+      e.preventDefault();
+      let valid = true;
+      f.querySelectorAll('[required]').forEach(el => {
+        if (!el.value.trim()) { el.classList.add('error'); valid = false; }
+        else { el.classList.remove('error'); }
+      });
+      if (!valid) return;
+      const btn  = f.querySelector('button[type="submit"]');
+      const orig = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Odesílám…';
+      try {
+        const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(f) });
+        const json = await res.json();
+        if (json.success) { f.hidden = true; ok.hidden = false; }
+        else { throw new Error() }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = orig;
+        alert('Omlouváme se, nastala chyba. Zavolejte nám prosím na 739 193 542.');
+      }
+    });
+  })();
+</script>
+</body>
+</html>
