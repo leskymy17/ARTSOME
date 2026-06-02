@@ -27,7 +27,7 @@
 
 /* ---------- RESET ---------- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box }
-html  { scroll-behavior: smooth }
+html  { scroll-behavior: smooth; overflow-x: hidden }
 body  {
   font-family: 'Inter', sans-serif;
   color: var(--ink);
@@ -213,7 +213,7 @@ footer {
 @media (max-width: 680px) {
   .nav-links, .nav-tel { display: none }
   .burger { display: flex }
-  .nav-cta .btn { padding: .7rem 1.1rem; font-size: .9rem }
+  .nav-cta .btn { padding: .52rem .82rem; font-size: .68rem }
   section { padding: 60px 0 }
   .wrap { padding: 0 18px }
   .foot-grid { grid-template-columns: 1fr; gap: 28px }
