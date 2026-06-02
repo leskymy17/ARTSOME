@@ -22,7 +22,7 @@
   /* ---- HERO ---- */
   .hero{position:relative;background:var(--blue);color:#fff;overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 85% 10%,rgba(255,255,255,.12),transparent 55%),radial-gradient(80% 60% at 0% 100%,rgba(255,122,77,.18),transparent 60%);pointer-events:none}
-  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:74px 0 84px}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:74px 24px 84px}
   .hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:.45rem .9rem;border-radius:999px;margin-bottom:1.4rem}
   .hero h1{font-size:clamp(2.1rem,4.4vw,3.5rem);font-weight:800;margin-bottom:1.1rem}
   .hero h1 em{font-style:normal;color:#ffd9c9}
@@ -127,7 +127,7 @@
 
   /* ---- RESPONSIVE ---- */
   @media(max-width:980px){
-    .hero-grid{grid-template-columns:1fr;gap:54px;padding:54px 0 70px}
+    .hero-grid{grid-template-columns:1fr;gap:54px;padding:54px 18px 70px}
     .hero p.lead{max-width:none}
     .svc-grid{grid-template-columns:repeat(2,1fr)}
     .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
@@ -141,7 +141,8 @@
     .ba-after{width:62%;right:-10px;bottom:-18px}
     .svc-grid{grid-template-columns:1fr;gap:16px}
     .gal{grid-template-columns:1fr 1fr;gap:10px;grid-auto-rows:140px}
-    .trust-row{gap:.8rem;justify-content:center}
+    .trust-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;padding:22px 0}
+    .trust-item{justify-content:flex-start;padding:10px 12px;background:var(--blue-soft);border-radius:10px}
   }
 </style>
 <script type="application/ld+json">
@@ -257,11 +258,11 @@
       </div>
       <div class="ba">
         <span class="tag">Po rekonstrukci</span>
-        <img src="assets/after-cellar.jpg" alt="Sklep přebudovaný na obyvatelnou kancelář" width="600" height="430">
+        <img src="PHOTO/ARTSOME.jpeg" alt="Realizace ARTSOME — malířství a renovace" width="600" height="430">
       </div>
       <div class="ba ba-after">
         <span class="tag">Původní stav</span>
-        <img src="assets/before-cellar.jpg" alt="Původní stav sklepa před rekonstrukcí" width="346" height="200">
+        <img src="PHOTO/old" alt="Původní stav sklepa před rekonstrukcí" width="346" height="200">
       </div>
     </div>
   </div>
@@ -301,7 +302,7 @@
       <div class="svc reveal">
         <div class="svc-img">
           <span class="svc-num" aria-hidden="true">01</span>
-          <img src="assets/svc-malovani.jpg" alt="Malování interiérů — výmalba pokoje" width="300" height="158" loading="lazy">
+          <img src="PHOTO/1.jpg" alt="Malování interiérů — výmalba pokoje" width="300" height="158" loading="lazy">
         </div>
         <div class="svc-body">
           <h3>Malování</h3>
@@ -312,7 +313,7 @@
       <div class="svc reveal">
         <div class="svc-img">
           <span class="svc-num" aria-hidden="true">02</span>
-          <img src="assets/svc-natery.jpg" alt="Nátěry oken, dveří a kovových prvků" width="300" height="158" loading="lazy">
+          <img src="PHOTO/2.png" alt="Nátěry oken, dveří a kovových prvků" width="300" height="158" loading="lazy">
         </div>
         <div class="svc-body">
           <h3>Nátěry</h3>
@@ -323,7 +324,7 @@
       <div class="svc reveal">
         <div class="svc-img">
           <span class="svc-num" aria-hidden="true">03</span>
-          <img src="assets/svc-renovace.jpg" alt="Renovace dřevěné chaty" width="300" height="158" loading="lazy">
+          <img src="PHOTO/3.png" alt="Renovace dřevěné chaty" width="300" height="158" loading="lazy">
         </div>
         <div class="svc-body">
           <h3>Renovace</h3>
@@ -334,7 +335,7 @@
       <div class="svc reveal">
         <div class="svc-img">
           <span class="svc-num" aria-hidden="true">04</span>
-          <img src="assets/svc-podlahy.jpg" alt="Pokládka podlah a stavební práce" width="300" height="158" loading="lazy">
+          <img src="PHOTO/4.png" alt="Pokládka podlah a stavební práce" width="300" height="158" loading="lazy">
         </div>
         <div class="svc-body">
           <h3>Podlahy &amp; stavba</h3>
@@ -359,12 +360,12 @@
       <a href="reference.html" class="btn btn-ghost">Zobrazit všechny reference</a>
     </div>
     <div class="gal">
-      <a href="reference.html" class="tall"><img src="assets/ref-1.jpg" alt="Realizace — malování interiéru" width="300" height="400" loading="lazy"></a>
-      <a href="reference.html"><img src="assets/ref-2.jpg" alt="Realizace — nátěry" width="300" height="200" loading="lazy"></a>
-      <a href="reference.html"><img src="assets/ref-3.jpg" alt="Realizace — renovace" width="300" height="200" loading="lazy"></a>
-      <a href="reference.html"><img src="assets/ref-4.jpg" alt="Realizace — podlahy" width="300" height="200" loading="lazy"></a>
-      <a href="reference.html" class="wide"><img src="assets/ref-5.jpg" alt="Realizace — rekonstrukce sklepa" width="600" height="200" loading="lazy"></a>
-      <a href="reference.html"><img src="assets/ref-6.jpg" alt="Realizace — tapety" width="300" height="200" loading="lazy"></a>
+      <a href="reference.html" class="tall"><img src="PHOTO/ref-3.jpeg" alt="Realizace ARTSOME" width="300" height="400" loading="lazy"></a>
+      <a href="reference.html"><img src="PHOTO/ref-2.jpeg" alt="Realizace ARTSOME" width="300" height="200" loading="lazy"></a>
+      <a href="reference.html"><img src="PHOTO/ref-4.jpeg" alt="Realizace ARTSOME" width="300" height="200" loading="lazy"></a>
+      <a href="reference.html"><img src="PHOTO/ref-5.jpeg" alt="Realizace ARTSOME" width="300" height="200" loading="lazy"></a>
+      <a href="reference.html" class="wide"><img src="PHOTO/ref-1.jpeg" alt="Realizace ARTSOME" width="600" height="200" loading="lazy"></a>
+      <a href="reference.html"><img src="PHOTO/ref-3.jpeg" alt="Realizace ARTSOME" width="300" height="200" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -380,11 +381,11 @@
     <div class="ba-cols reveal">
       <div class="ba-card">
         <span class="label label-before">Původní stav</span>
-        <img src="assets/before-cellar.jpg" alt="Sklep před rekonstrukcí" width="580" height="340" loading="lazy">
+        <img src="PHOTO/před.jpeg" alt="Sklep před rekonstrukcí" width="580" height="340" loading="lazy">
       </div>
       <div class="ba-card">
         <span class="label label-after">Po rekonstrukci</span>
-        <img src="assets/after-cellar.jpg" alt="Sklep po rekonstrukci" width="580" height="340" loading="lazy">
+        <img src="PHOTO/po.jpeg" alt="Sklep po rekonstrukci" width="580" height="340" loading="lazy">
       </div>
     </div>
   </div>
