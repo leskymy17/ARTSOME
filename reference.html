@@ -27,7 +27,6 @@
 
   /* ---- BENTO GALERIE ---- */
   .gal-section{padding:84px 0}
-  .gal-section .wrap{max-width:100%;padding:0 32px}
   .bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:280px;gap:12px}
   .cell{border-radius:var(--radius-sm);overflow:hidden;position:relative;cursor:pointer;background:var(--ph)}
   .cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
@@ -75,12 +74,10 @@
   /* ---- RESPONSIVE ---- */
   @media(max-width:980px){
     .bento{grid-auto-rows:220px;gap:10px}
-    .gal-section .wrap{padding:0 20px}
     .ba-pair img{height:240px}
   }
   @media(max-width:680px){
     .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px;gap:8px}
-    .gal-section .wrap{padding:0 14px}
     .c-full{grid-column:span 2}
     .c-wide{grid-column:span 2}
     .ba-pair{grid-template-columns:1fr}
