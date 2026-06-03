@@ -94,8 +94,8 @@
 
   /* ---- REVIEWS CAROUSEL ---- */
   .reviews{background:var(--blue-soft)}
-  .rev-outer{position:relative}
-  .rev-viewport{overflow:hidden}
+  .rev-outer{display:flex;align-items:center;gap:16px}
+  .rev-viewport{overflow:hidden;flex:1}
   .rev-track{display:flex;transition:transform .45s var(--ease)}
   /* 3 viditelné na desktopu */
   .rev{flex:0 0 calc(33.333% - 15px);margin-right:22px;background:#fff;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:1rem;border:1px solid var(--blue-line)}
@@ -107,8 +107,7 @@
   .rev .who .name{font-family:'Sora';font-weight:600;font-size:.95rem;color:var(--blue-ink)}
   .rev .who .meta{font-size:.82rem;color:var(--ink-soft)}
   /* šipky */
-  .rev-arrows{display:flex;justify-content:center;gap:12px;margin-top:28px}
-  .rev-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--blue-line);background:#fff;color:var(--blue-ink);cursor:pointer;display:grid;place-items:center;transition:.2s;box-shadow:var(--shadow-sm)}
+  .rev-arrow{flex:0 0 auto;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--blue-line);background:#fff;color:var(--blue-ink);cursor:pointer;display:grid;place-items:center;transition:.2s;box-shadow:var(--shadow-sm)}
   .rev-arrow:hover{border-color:var(--blue);color:var(--blue);transform:scale(1.07)}
   .rev-arrow svg{width:18px;height:18px}
   .rev-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
@@ -419,6 +418,9 @@
       <p>Spolehlivost, čistota a lidský přístup — to slýcháme nejčastěji. 32 ověřených recenzí na Firmy.cz.</p>
     </div>
     <div class="rev-outer">
+      <button class="rev-arrow" id="revPrev" aria-label="Předchozí recenze">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
       <div class="rev-viewport">
         <div class="rev-track" id="revTrack">
           <div class="rev">
@@ -479,17 +481,12 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="rev-arrows">
-      <button class="rev-arrow" id="revPrev" aria-label="Předchozí recenze">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <div class="rev-dots" id="revDots">
-        <button class="rev-dot active" aria-label="Stránka 1"></button>
-      </div>
       <button class="rev-arrow" id="revNext" aria-label="Další recenze">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
       </button>
+    </div>
+    <div class="rev-dots" id="revDots">
+      <button class="rev-dot active" aria-label="Stránka 1"></button>
     </div>
     <div class="rev-foot reveal">
       <a href="https://www.firmy.cz/detail/13603911-artsome-s-r-o-havirov-mesto.html#hodnoceni" class="btn btn-primary" target="_blank" rel="noopener">Číst všech 32 recenzí na Firmy.cz</a>
